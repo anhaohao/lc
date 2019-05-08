@@ -30,7 +30,7 @@
  * 
  */
 class Solution {
-    public void helper(List<List<Integer>> ret, List<Integer> temp, int[] nums, int index, int[] arr) {
+    public void helper(List<List<Integer>> ret, List<Integer> temp, int[] nums, int[] arr) {
         if(temp.size() == nums.length){
             ret.add(new ArrayList<>(temp));
             return;
@@ -40,14 +40,14 @@ class Solution {
                 continue;
             temp.add(nums[i]);
             arr[i] = 1;
-            helper(ret, temp, nums, ++index, arr);
+            helper(ret, temp, nums, arr);
             temp.remove(temp.size() - 1);
             arr[i] = 0;
         }
     }
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> ret = new ArrayList<>();
-        helper(ret, new ArrayList<>(), nums, 0, new int[nums.length]);
+        helper(ret, new ArrayList<>(), nums, new int[nums.length]);
         return ret;
     }
 }
